@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/primera_validacion[1.1:13]","start":1759024367208,"end":1759024368219,"title":"features\/primera_validacion[1.1:13] 22:52:47.208-22:52:48.219 primera validación api Get"},{"id":2,"group":1,"content":"features\/primera_validacion[1.2:14]","start":1759024368229,"end":1759024368601,"title":"features\/primera_validacion[1.2:14] 22:52:48.229-22:52:48.601 primera validación api Get","className":"failed"},{"id":3,"group":1,"content":"features\/primera_validacion[1.3:15]","start":1759024368619,"end":1759024368968,"title":"features\/primera_validacion[1.3:15] 22:52:48.619-22:52:48.968 primera validación api Get","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
